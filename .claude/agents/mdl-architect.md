@@ -17,9 +17,9 @@ Project map:
   - The render Context prefix stack + pendingMarker drives all indentation; never hand-indent.
   - Tokenizer rules are ordered: comments → strings → annotations → numbers → keywords → types/builtins → functions → operators → punctuation.
   - regexp2 patterns are \G-anchored; Go stdlib regexp cannot express the lookaheads used.
-- Parity: when behavior questions arise, diff against the Java original:
-  `java -jar archive/java/build/libs/mdl.jar --plain --width 80 <file>` vs `./mdl --plain --width 80 <file>`,
-  and under a pty via `script -qec "... " /dev/null` for color modes.
+- Regression checks: compare renders before/after a change with
+  `./mdl --plain --width 80 <file>`, and under a pty via `script -qec "..." /dev/null` for
+  color modes (fixtures live in internal/render/testdata/).
 
 Working style:
 - Read the relevant code before proposing designs; propose 2-3 options with trade-offs, then implement the chosen one end-to-end.

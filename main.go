@@ -8,12 +8,14 @@ import (
 	"os"
 	"path/filepath"
 
+	xterm "golang.org/x/term"
+
 	"github.com/benelog/md-lens/internal/cli"
 	"github.com/benelog/md-lens/internal/render"
 	"github.com/benelog/md-lens/internal/term"
 )
 
-const version = "1.0.0"
+const version = "1.0.1"
 
 func main() {
 	opts, err := cli.Parse(os.Args[1:])
@@ -33,6 +35,13 @@ func main() {
 	case opts.Caps:
 		caps := term.Detect(opts.Plain, opts.NoColor, opts.NoImages, opts.Width, opts.ForceGraphics)
 		fmt.Print(term.FormatReport(caps, !opts.NoHeadingImages))
+		return
+	}
+
+	// Bare `mdl` on an interactive terminal: nothing to read from stdin, so show usage
+	// (with the current version) instead of hanging while waiting for input.
+	if opts.File == "" && xterm.IsTerminal(int(os.Stdin.Fd())) {
+		printHelp()
 		return
 	}
 
@@ -74,7 +83,7 @@ func readInput(file string) (markdown, baseDir string, err error) {
 }
 
 func printHelp() {
-	fmt.Print(`mdl — a rich terminal markdown viewer
+	fmt.Print("mdl v" + version + ` — a rich terminal markdown viewer
 
 Usage: mdl [options] [file.md]
        (reads stdin when no file is given)

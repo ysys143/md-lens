@@ -22,23 +22,11 @@ golangci-lint run ./...
 go test ./...
 ```
 
-## Release builds
+## Releasing
 
-Cross-compile static binaries (no cgo) for the GitHub release:
-
-```bash
-GOOS=linux  GOARCH=amd64 go build -trimpath -ldflags="-s -w" -o dist/mdl-linux-amd64 .
-GOOS=linux  GOARCH=arm64 go build -trimpath -ldflags="-s -w" -o dist/mdl-linux-arm64 .
-GOOS=windows GOARCH=amd64 go build -trimpath -ldflags="-s -w" -o dist/mdl-windows-amd64.exe .
-(cd dist && sha256sum mdl-* > SHA256SUMS.txt)
-```
-
-Bump `const version` in `main.go` to match the git tag (vX.Y.Z), then:
-
-```bash
-git tag vX.Y.Z && git push origin main --tags
-gh release create vX.Y.Z dist/mdl-* dist/SHA256SUMS.txt --title "mdl vX.Y.Z"
-```
+Use the `/release` skill (`.claude/skills/release/SKILL.md`) — it runs the quality gate,
+syncs `const version` in `main.go` with the tag, cross-compiles Linux/Windows binaries
+with checksums, tags, publishes the GitHub release, and verifies the download URLs.
 
 ## Project layout
 
