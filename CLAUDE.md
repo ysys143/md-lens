@@ -1,4 +1,4 @@
-# Markdown Lens (mdl) — developer guide
+# MD Lens (mdl) — developer guide
 
 A terminal Markdown viewer written in Go. Module path: `github.com/benelog/md-lens`.
 Requires Go 1.24+.

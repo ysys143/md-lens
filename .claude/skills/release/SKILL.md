@@ -3,9 +3,9 @@ name: release
 description: Release a new version of md-lens (mdl) to GitHub — runs the quality gate, syncs the version constant, cross-compiles Linux/Windows binaries with checksums, tags, publishes a GitHub release, and verifies the download URLs. Use whenever the user asks to release, publish, tag, or ship a version (e.g. "release v1.2.0", "v1.0.2로 릴리즈해줘", "새 버전 배포", "publish the binaries"), even if they don't say the word "release".
 ---
 
-# Release md-lens
+# Release MD Lens
 
-Publish version `vX.Y.Z` of mdl to https://github.com/benelog/md-lens/releases.
+Publish version `vX.Y.Z` of MD Lens (binary: `mdl`) to https://github.com/benelog/md-lens/releases.
 Takes the target version as an argument (e.g. `/release v1.0.2`); if omitted, bump the
 patch number from the latest git tag.
 
@@ -72,7 +72,7 @@ not boilerplate. Keep the install table — it is what most visitors come for.
 git tag vX.Y.Z && git push origin vX.Y.Z
 gh release create vX.Y.Z \
   dist/mdl-linux-amd64 dist/mdl-linux-arm64 dist/mdl-windows-amd64.exe dist/SHA256SUMS.txt \
-  --title "mdl vX.Y.Z" \
+  --title "MD Lens vX.Y.Z" \
   --notes "<highlights + install table>"
 ```
 

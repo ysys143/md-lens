@@ -1,6 +1,6 @@
-# Markdown Lens : a rich terminal Markdown viewer
+# MD Lens : a rich terminal Markdown viewer
 
-A `cat` for Markdown. Prints a `.md` file to your terminal with ANSI styling,
+**MD Lens** (`mdl`) is a `cat` for Markdown. Prints a `.md` file to your terminal with ANSI styling,
 syntax-highlighted code, **inline images**, and **large font headings**
 
 ![mdl rendering docs/demo.md in kitty — large font headings, syntax-highlighted code, task lists, tables, and a true inline image](docs/screenshot.png)

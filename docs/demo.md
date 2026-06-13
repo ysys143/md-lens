@@ -1,4 +1,4 @@
-# Markdown Lens
+# MD Lens
 
 A `cat` for **Markdown** — *styled text*, syntax-highlighted code, [hyperlinks](https://github.com/benelog/md-lens), tables, and true inline images.
 
