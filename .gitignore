@@ -10,5 +10,6 @@
 *.swp
 .DS_Store
 
-# oh-my-claudecode local session/tooling state
+# local session/tooling state
 .omc/
+.cwf/
